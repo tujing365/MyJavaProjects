@@ -1,0 +1,25 @@
+import java.util.Arrays;
+import java.util.Random;
+/*
+创建一个长度为6的int型数组，
+要求取值为1-30，
+同时元素值各不相同
+ */
+public class RandomTest {
+    public static void main(String[] args) {
+        //rand.nextInt(x)方法生成[0,x)范围的随机数
+        //System.out.println(new Random().nextInt(30) + 1);
+        //int randNumber =rand.nextInt(MAX - MIN + 1) + MIN
+        Random rand = new Random();
+        int[] a = new int[6];
+        for (int i = 0; i < 6; i++){
+            a[i] = rand.nextInt(30) + 1;
+            for(int j = 0; j < i; j++){
+                if(a[i] == a[j]){
+                    i--;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(a));
+    }
+}
